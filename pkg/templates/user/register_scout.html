@@ -1,0 +1,145 @@
+{% extends "user/register_player.html" %}
+
+    {% block link %}
+    <div class="row justify-content-center pt-5">
+      <div class="col-md-6 pt-5">
+          <a href="{{url_for('player_register')}}"><h4> Click here to register as player ==> </h4></a>
+      </div>
+    </div>
+    {% endblock %}
+
+
+
+       <!-- Scout Form -->
+
+      {% block content %}
+  <div class="row justify-content-center pt-4 pb-5">
+      <div class="col-md-6">
+        <div class="card" id="scoutform">
+          <div class="card-body glass-card">
+            <h3 class="text-center mb-4">Create a Scout Account</h3>
+            {% with messages = get_flashed_messages(with_categories=True) %}
+                      {% if messages %}
+                          {% for cat,msg in messages%}
+                              {% if cat == 'success' %}
+                                  <p class="alert alert-success">{{msg}}</p>
+                              {%elif cat == 'error' %}
+                                  <p class="alert alert-danger"> {{msg}} </p>
+                              {%else%}
+                                  <p class="alert alert-primary"> {{msg}} </p>
+                              {%endif%}
+                          {%endfor%}
+                      {%endif%}
+                  {%endwith%}
+            <form action="{{url_for('scout_register')}}" method="POST" novalidate>
+                  {{f.csrf_token}}
+                <label><h4>Basic Information:</h4></label>
+                <div class="mb-3">
+                  {{f.firstname_scout.label}}
+                  {{f.firstname_scout(class_='form-control',placeholder='Enter your firstname')}}
+                      {%if f.firstname_scout.errors%}
+                          {% for error in f.firstname_scout.errors%}
+                              <small class="text-danger">{{ error }}</small>
+                        {%endfor%}
+                      {%endif%}
+                </div>
+
+                <div class="mb-3">
+                  {{f.lastname_scout.label}}
+                  {{f.lastname_scout(class_='form-control',placeholder='Enter your lastname')}}
+                    {%if f.lastname_scout.errors%}
+                      {%for error in f.lastname_scout.errors%}
+                        <small class="text-danger">{{ error }}</small>
+                      {%endfor%}
+                    {%endif%}
+                </div>
+
+                <div class="mb-3">
+                  {{f.email_scout.label}}
+                  {{f.email_scout(class_='form-control',placeholder='example@gmail.com')}}
+                      {%if f.email_scout.errors%}
+                          {% for error in f.email_scout.errors%}
+                              <small class="text-danger">{{ error }}</small>
+                        {%endfor%}
+                      {%endif%}
+                </div>
+
+                <div class="mb3">
+                        {{f.password_scout.label}} 
+                        {{f.password_scout(class_='form-control',placeholder='Please enter your password')}}
+                        {% if f.password_scout.errors %}
+                            {% for error in f.password_scout.errors %}
+                                <small class="text-danger">{{ error }}</small>
+                            {% endfor %}
+                        {%endif%}
+                  </div>
+
+                  <div class="mb3">
+                        {{f.repeat_password_scout.label}}  <br>
+                        {{f.repeat_password_scout(class_='form-control',placeholder='Confirm your password')}}
+                        {% if f.repeat_password_scout.errors %}
+                            {% for error in f.repeat_password_scout.errors %}
+                                <small class="text-danger">{{ error }}</small>
+                            {% endfor %}
+                        {%endif%}
+                  </div>
+              
+                  <div class="mb-3">
+                    {{f.agree(class_='form-label')}}
+                      {{f.agree.label}} 
+                        {% if f.agree.errors %}
+                            {% for error in f.agree.errors %}
+                                <small class="text-danger">{{ error }}</small>
+                            {% endfor %}
+                        {%endif%}
+                  </div>
+                  
+                  <div class="mb3">
+                  {{f.submit_scout(class_='btn btn-info link-btn col-12')}}
+                  </div>
+
+            </form>
+
+            <p class="text-center mt-3">
+              Already have an account? <a href="{{url_for('scout_login')}}">Login</a>
+            </p>
+
+          </div>
+        </div>
+      <!-- Scout form end -->
+      </div>
+  </div>
+      {% endblock content %}
+    </div>
+  </div>
+
+       
+
+
+  	
+
+
+
+
+
+     <!-- <script>
+      $(document).ready(function(){
+        $('#scoutform').hide()
+
+        $('#scout').click(function(){
+          $('#scoutform').show();
+          $('#playerform').hide();
+        })
+
+        $('#player').click(function(){
+          $('#playerform').show();
+          $('#scoutform').hide();
+        })
+
+
+
+
+      })  //document ready closing
+
+
+     </script> -->

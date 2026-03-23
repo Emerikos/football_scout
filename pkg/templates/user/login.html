@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" >  <!-- Description -->
+    <meta name="author" content="Godwin C.N">
+	<meta name="robots" content="index, follow">
+	<title> Login </title>
+	<link rel="stylesheet" href="{{url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+    <style>
+    .navbar-brand, [img]{
+			max-width:80px; 
+			padding:0;
+	}
+	.football{
+		font-family:"Saira Stencil One", sans-serif;
+	}
+	.ctus{
+		border-radius:20px
+	}
+	.nav-link ul li a{
+		text-decoration:none;
+		font-size:17px;
+		font-weight:bold;
+	}
+    .nav-link ul [href]:hover{
+			font-family:"Saira Stencil One", sans-serif;
+		}
+    .glass-card {
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+    .newsletter{
+			background:radial-gradient(ellipse, rgb(59, 177, 203) 50%,rgb(43, 74, 131));
+            border-radius:10px;
+		}
+    .newsletter [href]:hover{
+		background-color:aliceblue;
+		color:black;
+	}
+	 .young{
+		font-size:25px;
+	}	
+    .footer{
+        background:radial-gradient(ellipse, rgb(59, 177, 203) 50%,rgb(43, 74, 131));
+    }
+    .footer a{
+	text-decoration:none;
+	color:white;
+	}
+	a{
+		text-decoration:none;
+	}
+	.discover{
+		font-size:100px;
+	}
+    .footer [href]:hover{
+			color:black;
+			font-family:"Saira Stencil One", sans-serif;
+		}
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        {%include "user/navbar.html"%}
+        
+            
+        <div class="row pt-5 justify-content-center">
+            <div class="col-md-12 pt-5 text-center">
+                <h2>Welcome Back!</h2>
+                <h3> Please Login: </h3>
+            </div>
+        </div>
+         
+         <div class="row justify-content-center pb-5">
+            <div class="col-md-6 col-lg-5">
+                <div class="glass-card p-4 p-md-5"> 
+                {#    <!-- <a href="{{url_for('scout_login')}}"><h5 class="pb-4"> Not a player? click here to login as a scout ==> </h5></a> -->  #}
+                        {%with messages=get_flashed_messages(with_categories=True)%}
+                            {%for cat,msg in messages%}
+                                <p class="alert alert-{{cat}}">{{msg}}</p>
+                            {%endfor%}    
+                        {%endwith%}
+                    <form action="" method="POST" novalidate>
+                        {{log.csrf_token}}
+                        <div class="mb-3">
+                            {{log.email.label}}
+                            {{log.email(class_="form-control",placeholder="email@example.com")}}
+                            {% if log.email.errors%}
+                                {% for error in log.email.errors%}
+                                    <small class="text-danger">{{ error }}</small>
+                                {%endfor%}
+                            {%endif%}
+                        </div>
+
+                         <div class="mb-3">
+                            {{log.password.label}}
+                            {{log.password(class_="form-control",placeholder="••••••••")}}
+                            {% if log.password.errors%}
+                                {% for error in log.password.errors%}
+                                    <small class="text-danger">{{ error }}</small>
+                                {%endfor%}
+                            {%endif%}
+                         </div>
+
+                        <div class="mb-3">
+                            {{log.submit(class='btn btn-info col-12')}}
+                        </div>
+                    </form>
+                    <p>Don't have an account? <a href="{{url_for('player_register')}}">Register</a></p>
+
+                </div>
+             </div>
+        </div>
+            
+
+
+
+
+
+
+		
+
+
+         {%include "user/footer.html"%}
+
+
+    </div>
+	<script src="{{url_for('static',filename='bootstrap/js/bootstrap.bundle.js')}}"></script>
+</body>
+</html>

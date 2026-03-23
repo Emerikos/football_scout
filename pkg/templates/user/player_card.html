@@ -1,0 +1,40 @@
+{% if play %}
+    <div class="row pt-3 ps-5">
+        {% for p in play %}
+            <div class="col-md-4 profile mx-2 my-2">
+                
+
+                    {% if p.player_photo %}
+                        <img src="{{ url_for('static', filename='uploads/' + p.player_photo) }}"
+                             class="img-fluid  mb-2 player-img" alt="player">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='images/avatar.jpg') }}"
+                             class="img-fluid mb-2 player-img" alt="player">
+                    {% endif %}
+
+                    <h2 class="text-light">{{ p.player_firstname }} {{ p.player_lastname }}</h2>
+
+                    <p class="text-light">
+                        Position: {{ p.primary_position.position_name }} <br>
+                        Age: {{ p.get_age() }} <br>
+                        Height: {{ p.player_height }}
+                    </p>
+                    <p>
+                         {%if p.player_id == session.get("userid") and session.get("usertype") == "player" %}
+                        
+                                        <a href="{{url_for('profile')}}" class="btn btn-info video-btn">My Profile</a>
+                                    
+                                {%else%}
+                                <a href="{{url_for('featured_players',id=p.player_id)}}"  class="btn btn-info video-btn">View Profile</a>
+                                {%endif%}
+
+                    </p>
+
+                
+            </div>
+        {% endfor %}
+    </div>
+      {%else%}                   
+    <h4 class="text-warning">No players found</h4>
+    {% endif %}
+                    

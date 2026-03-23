@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content=" Know more about Football Scout" >
+    <meta name="author" content="Godwin C.N">
+	<meta name="robots" content="index, follow">
+	<title> About Us </title>
+	<link rel="stylesheet" href="{{url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+    <style>
+     /*   *{
+            outline:2px solid red;
+        } */
+        .navbar-brand, [img]{
+			max-width:80px; 
+			padding:0;
+	}
+	.football{
+		font-family:"Saira Stencil One", sans-serif;
+	}
+	.ctus{
+		border-radius:20px
+	}
+	.nav-link ul li a{
+		text-decoration:none;
+		font-size:17px;
+		font-weight:bold;
+	}
+    .nav-link ul [href]:hover{
+			font-family:"Saira Stencil One", sans-serif;
+	}
+        .accordion1 :hover{
+            color:skyblue;
+    }
+         .accordion2 :hover{
+            color:black;
+    }
+        .join{
+			background:linear-gradient(30deg, rgb(59, 177, 203) 50%,rgb(43, 74, 131));
+			border-radius:20px;
+	}
+
+		.footer{
+			background:radial-gradient(ellipse, rgb(59, 177, 203) 50%,rgb(43, 74, 131));
+	}
+        .newsletter{
+			background:radial-gradient(ellipse, rgb(59, 177, 203) 50%,rgb(43, 74, 131));
+            border-radius:10px;
+	}
+        .newsletter [href]:hover{
+		background-color:aliceblue;
+		color:black;
+	}
+		.footer a{
+        text-decoration:none;
+        color:white;
+	}
+	a{
+		text-decoration:none;
+	}
+    .empower{
+        font-size:50px;
+        font-weight:700
+    }
+    .hero [src]{
+        border-radius: 50px;
+    }
+    .about_pix{
+        border-radius:50px;
+    }
+	.discover{
+		font-size:100px;
+	}
+    .young{
+        font-size:25px;
+    }
+    .footer [href]:hover{
+			color:black;
+			font-family:"Saira Stencil One", sans-serif;
+		}
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+       {%include "user/navbar.html"%}
+
+
+
+        
+        <div class="row pt-5">
+            <div class="col-md-6 pt-5 ps-5 empower">
+                <p>Empowering <br> Youth Football <br> <span class="text-info">Through Technology</span></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10 ps-5 pb-5 hero">
+                <img src="{{url_for('static',filename='images/about_hero.png')}}" alt="boy playing football" class="img-fluid"/>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6 pt-5 pb-3 ps-5">
+                <h1> What We Saw <br> <span class="text-info">Football Is Getting Younger</span></h1>
+                <p class="young"> The numbers don’t lie, the average age of squads is dropping, the portion of clubs transfer budgets going on players under 21 is ballooning, and some of the biggest names in the sport are increasingly getting their first team debuts as teenagers. </p>
+            </div>
+            <div class="col-md-6 pt-4 pb-3">
+                <img src="{{url_for('static',filename='images/young_player.png')}}" alt="young_footballers" class="img-fluid"/>
+            </div>
+
+            
+            <div class="col-md-6 pt-5 pb-5 g-5 ps-5">
+                 <img src="{{url_for('static',filename='images/freekick.jpg')}}" alt="boy playing ball" class="img-fluid about_pix p-3"/>
+            </div>
+            <div class="col-md-6 g-5 pt-5 pb-5">
+                <h1 class="pt-5 text-info"> Our Mission </h1>
+                <p class="young"> Our mission is to give young and undiscovered football talents the opportunity to be seen, evaluated, and recognized by the right people in the football industry through technology, transparency, and professional scouting. </p>
+            </div>
+            
+            <div class="col-md-6 pt-5 ps-5 pb-5">
+                <h1 class="text-info"> Our Vission </h1>
+                <p class="young"> To become a trusted digital scouting platform <br> that helps shape the future of football <br> by discovering and supporting the next <br> generation of football stars. </p>
+            </div>
+            <div class="col-md-6 pt-4 pb-5">
+                <img src="{{url_for('static',filename='images/junior_player.png')}}" alt="young_footballers" class="img-fluid"/>
+            </div>
+        </div>
+
+         <div class="row pt-5">
+			<div class="col-md-10 offset-md-1 join p-5">
+				<div class="row text-white p-2">
+					<div class="col-12 col-md-7 pb-3 ps-5" style="font-size: 20px;">
+						<h1 class="ps-5">Join Us Today!</h1>
+						<p class="ps-5">Are you an upcoming footballer? <br> Create your profile and get started today</p>
+						<div class="ps-5"><a href="{{url_for('player_register')}}" class="btn btn-outline-light text-dark btn-lg">
+                                    Click Here To Register - - > </a>
+						</div>    
+					</div>						
+				</div>
+			</div>
+		</div>
+
+        {%include "user/footer.html"%}
+
+
+
+
+    </div>
+    <script src="{{url_for('static',filename='bootstrap/js/bootstrap.bundle.js')}}"></script>
+</body>
+</html>

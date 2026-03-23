@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Football Scout - making your dream of becoming a professional footballer come true" >
+    <meta name="author" content="Godwin C.N">
+	<meta name="robots" content="index, follow">
+	<title> Football Scout</title>
+	<link rel="stylesheet" href="{{url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+    <style>
+		/* *{outline:2px solid red;} */
+        .navbar-brand, [img]{
+			max-width:80px; 
+			padding:0;
+	}
+	.football{
+		font-family:"Saira Stencil One", sans-serif;
+	}
+	.ctus{
+		border-radius:20px
+	}
+	.banner{
+        min-height:500px;
+        position:relative;
+        background-color: rgb(59, 177, 203);
+    }
+	.banner-video{
+        position:absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    }
+    .overh{
+		font-size:90px;
+	}
+    .overp{
+		font-size:40px;
+		font-family:"Saira Stencil One", sans-serif;
+	}
+	.links [href]:hover{
+		background-color:black;
+		color:white;
+	}
+	.justify{
+		font-size:40px;
+        font-weight:700;
+	}
+	  .statsh{
+        font-size:50px;
+        font-weight:700;
+		justify-content: center;
+    }
+
+	.nav-link ul li a{
+		text-decoration:none;
+		font-size:17px;
+		font-weight:bold;
+	}
+    .nav-link ul [href]:hover{
+			font-family:"Saira Stencil One", sans-serif;
+	}
+	.join{
+		background:linear-gradient(30deg, rgb(59, 177, 203) 50%,rgb(43, 74, 131));
+		border-radius:20px;
+	}
+	.footer{
+		background:radial-gradient(ellipse, rgb(59, 177, 203) 50%,rgb(43, 74, 131));
+	}
+	.card{
+		background:linear-gradient(to bottom,silver,darkslategray);
+		color:aliceblue;
+		border:2px solid yellow;
+		padding: 5px;
+		text-align: center;
+		border-radius: 20px;
+	}
+
+	.player-img {
+    width: 90%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 40px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid blue;
+	}
+	.link-btn:hover{
+    background-color:black;
+    color:white;
+	}
+	.footer a{
+	text-decoration:none;
+	color:white;
+	}
+	a{
+		text-decoration:none;
+	}
+	.discover{
+		font-size:100px;
+	}
+	.newsletter{
+			background:radial-gradient(ellipse, rgb(59, 177, 203) 50%,rgb(43, 74, 131));
+            border-radius:10px;
+		}
+	.newsletter [href]:hover{
+		background-color:aliceblue;
+		color:black;
+	}
+	.young{
+		font-size:25px;
+	}	
+	.footer [href]:hover{
+			color:black;
+			font-family:"Saira Stencil One", sans-serif;
+		}
+
+    </style>
+</head>
+<body>
+    {%include "user/navbar.html"%}
+			<!-- Banner -->
+        <div class="row pt-5">
+            <div class="col banner pt-5">
+                 <video autoplay muted loop playsinline class="banner-video">
+                    <source src="{{url_for('static',filename='images/hero_video.mp4')}}" type="video/mp4" class="img-fluid">
+                </video>
+                <div class="hero-overlay">
+                    <div class="row h-100 align-items-center m-0">
+                        <div class="col text-center text-white">
+                            <h1 class="overh text-info">Discover Football <br>Talent</h1>
+                            <p class="overp"> Football Scouting at its finest </p>
+                            <div class="col-md-12 gap-3 mt-3 text-center links">
+                                <a href="/players/" class="btn btn-info btn-lg">
+                                    Browse Players
+                                </a>
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                <a href="{{url_for('scout_register')}}" class="btn btn-outline-light btn-lg">
+                                    Join as a Scout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		
+		<div class="row pt-5">
+			<div class="col-md-8 offset-md-2 pt-5 statsh">
+				<p>Discovering Young<br> Footballers With The Use Of<br> <span class="text-info">Data</span></p>
+            </div>
+        </div>
+		
+		<div class="row pt-5">
+			<div class="col-md-6 ps-5">
+				<img src="{{url_for('static',filename='images/echi1.jpg')}}" class="img-fluid w-75 ps-2" />
+			</div>
+			<div class="col-md-5 pt-5" style="font-size: 22px;">
+				<p>Many young footballers have the talent to succeed but lack the exposure needed to be discovered by scouts and academies. This platform provides a digital space where upcoming players can showcase their skills, share their profiles, and upload match or training videos. By connecting young talents with scouts and coaches, the project helps ensure that promising players are seen, evaluated, and given opportunities to grow in their football careers.</p>
+			</div>
+		</div>
+
+		<div class="row pt-5">
+			<div class="col-md-10 offset-md-1 join p-5">
+				<div class="row text-white p-2">
+					<div class="col-12 col-md-7 pb-3 ps-5" style="font-size: 20px;">
+						<h1 class="ps-5">Let's Get In Touch</h1>
+						<p class="ps-5">Are you an upcoming footballer? <br> Create your profile and get started today</p>
+						<div class="ps-5"><a href="{{url_for('player_register')}}" class="btn btn-outline-light btn-lg link-btn">
+                                    Join Us Now - - > </a>
+						</div>    
+					</div>						
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-8 offset-md-2 pt-5">
+				<img src="{{url_for('static',filename='images/stats.jpg')}}" class="img-fluid"/>
+			</div>
+		</div>
+
+
+		<div class="row pt-5">
+			<div class="col-md-12 text-center">
+				<h1> Why <span class="text-info">Choose Us?</span></h1>
+			</div>
+		</div>
+		
+		<div class="row pt-2 ps-3">
+			<div class="col-md-6">
+				<img src="{{url_for('static',filename='images/transparent.jpg')}}" alt="young footballer" class="img-fluid"/>
+			</div>
+			<div class="col-md-6">
+				<p class="pt-3 justify">Football is <span  class="text-info">Getting Younger </span></p>
+				<p style="font-size: 20px;">Football is no longer waiting. Players are breaking through at younger ages, and clubs are searching earlier than ever for the next big talent. In today’s game, early exposure can make the difference between being seen and being overlooked.This platform provides a digital space where upcoming players can showcase their skills, share their profiles, and upload match or training videos.</p>
+			</div>
+		</div>
+
+
+	
+		<div class="row pt-5" id="featured_players">
+			<div class="col-md-12 text-center">
+				
+				<h1>Featured <span class="text-info">Players</span></h1>
+			</div>
+		</div>
+		<div class="row ps-4">
+				{%if play%}
+					{%for p in play%}
+					<div class="col-12 col-md-3 card mb-3" style="width: 18rem;">
+						<div class="card-body">
+							{%if p.player_photo %}
+							<img src="{{url_for('static',filename='uploads/'+p.player_photo)}}" alt="young footballer" class="img-fluid player-img"/>
+							{%else%}
+							<img src="{{url_for('static',filename='images/avatar.jpg')}}" alt="young footballer" class="img-fluid player-img"/>
+							{%endif%}
+							<h5 class="card-title pt-2"><b>{{p.player_firstname}} {{p.player_lastname}}</b></h5>
+							<p>
+								<b>
+									Age: {{p.get_age()}} <br>
+									Position: {{p.primary_position.position_name}} <br>
+								</b>
+							</p>
+							 {%if p.player_id == session.get("userid") and session.get("usertype") == "player" %}
+                                    <a href="{{url_for('profile')}}" class="card-link btn btn-info link-btn">My Profile</a>
+							{%else%}
+							<a href="{{url_for('featured_players',id=p.player_id)}}" class="card-link btn link-btn btn-info"><b>View Profile</b></a>
+							{%endif%}
+						</div>
+					</div>
+					&nbsp; &nbsp; &nbsp;
+					{%endfor%} 
+				{%else%}
+				<div class="col-12 col-md-3 card" style="width: 18rem;">
+						<div>
+							<img src="{{url_for('static',filename='images/echi.jpg')}}" alt="young footballer" class="img-fluid player-img"/>
+							<h5 class="card-title pt-2"><b>David Okoye</b></h5>
+							<p>
+								<b>
+									Age: 18<br>
+									Position: Winger<br>
+									Preferred foot: right<br>
+								</b>
+							</p>
+							<a href="/player1/" class="card-link btn link-btn btn-light"><b>View Profile</b></a>
+						</div>
+				</div>
+				{%endif%}
+
+		</div>
+
+		
+ 
+
+
+		{%include "user/footer.html"%}
+
+
+
+
+    </div>
+	<script src="{{url_for('static',filename='bootstrap/js/bootstrap.bundle.js')}}"></script>
+</body>
+</html>

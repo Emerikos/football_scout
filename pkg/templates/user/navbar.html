@@ -1,0 +1,64 @@
+<!-- navbar -->
+<div class="container-fluid">
+        <div class="row">
+			<div class="col px-0">
+				<nav class="navbar fixed-top bg-light navbar-expand-lg p-2 ps-2 pe-5">
+				  <div class="container-fluid">
+					<a class="navbar-brand" href="/"><img src="{{url_for('static',filename='images/logo.png')}}" alt="logo" class="img-fluid"></a>
+					<a href = "/"><h3 class="football text-dark">FOOTBALL SCOUT</h3></a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					  <span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse nav-link navbar-collapse" id="navbarSupportedContent">
+					  <ul class="navbar-nav ms-auto">
+						<li class="nav-item pe-5">
+						  <a class="nav-link" href="/">Home</a>
+						</li>
+						<li class="nav-item pe-5">
+						  <a class="nav-link" href="/about/">About</a>
+						</li>
+						<li class="nav-item pe-5">
+						  <a class="nav-link" href="/players/">Players</a>
+						</li>
+	{% if session.get('useronline') and session.get('userid') %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="fw-semibold">Hi, {{ session.get('useronline') }}</span>
+                            <i class="bi bi-person-circle fs-5"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm mt-2">
+                            <li><a class="dropdown-item" href="{{url_for('profile')}}"><i
+                                        class="bi bi-person me-2"></i>Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger" href="{{url_for('logout')}}"><i
+                                        class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                        </ul>
+                    </li>
+	{% else %}
+						<li class="nav-item pe-5">
+						  <a class="nav-link" href="{{url_for('player_register')}}">Register</a>
+						</li>
+						<li class="nav-item dropdown pe-5">
+							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+							Login
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a class="dropdown-item" href="{{ url_for('player_login') }}">Player</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="{{ url_for('scout_login') }}">Scout</a>
+								</li>
+							</ul>
+						</li>
+					  </ul>
+	{% endif %}				 
+					</div>
+				  </div>
+				</nav>
+			</div>
+		</div>
+

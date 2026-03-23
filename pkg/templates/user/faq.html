@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Have any questions? check out our FAQs page" >
+    <meta name="author" content="Godwin C.N">
+	<meta name="robots" content="index, follow">
+	<title> FAQs </title>
+	<link rel="stylesheet" href="{{url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+    <style>
+        .navbar-brand, [img]{
+			max-width:80px; 
+			padding:0;
+	}
+	.football{
+		font-family:"Saira Stencil One", sans-serif;
+	}
+	.ctus{
+		border-radius:20px
+	}
+	.nav-link ul li a{
+		text-decoration:none;
+		font-size:17px;
+		font-weight:bold;
+	}
+    .nav-link ul [href]:hover{
+			font-family:"Saira Stencil One", sans-serif;
+		}
+        .accordion1 :hover{
+            color:skyblue;
+        }
+         .accordion2 :hover{
+            color:black;
+        }
+    .newsletter{
+			background:radial-gradient(ellipse, rgb(59, 177, 203) 50%,rgb(43, 74, 131));
+            border-radius:10px;
+		}
+    .newsletter [href]:hover{
+		background-color:aliceblue;
+		color:black;
+	}
+	 .young{
+		font-size:25px;
+	}	
+
+
+		.footer{
+			background:radial-gradient(ellipse, rgb(59, 177, 203) 50%,rgb(43, 74, 131));
+		}
+		.footer a{
+	text-decoration:none;
+	color:white;
+	}
+	a{
+		text-decoration:none;
+	}
+	.discover{
+		font-size:100px;
+	}
+    .footer [href]:hover{
+			color:black;
+			font-family:"Saira Stencil One", sans-serif;
+		}
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+       {%include "user/navbar.html"%}
+
+
+
+
+        <!-- FAQs -->
+<div class="row">
+    <div class="col-md-12 pt-5">
+        <h2 class="text-center py-4 pt-5"> Frequently Asked <span class="text-info">Questions</span></h2>
+        <div>
+                    <p class="text-center"><b> Explore some of the frequently asked questions from customers like you;</b></p>
+                <div class="col-md-8 offset-md-2 pb-5 accordion1 accordion" id="accordionExample">
+                    <!--FAQ 1-->
+                    <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        1. What is Football Scout platform about?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body text-dark accordion2">
+                        <strong>This platform is designed to help discover and promote upcoming football talents by connecting players, scouts, agents, and clubs in one place. Players can showcase their skills through videos, while scouts provide professional evaluations.</strong>
+                        </div>
+                    </div>
+                    </div>
+                     <!--FAQ 1-->
+                    <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        2. Who can use this website?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body text-dark accordion2">
+                        <strong>The platform can be used by
+                            <ul>
+                                <li>Players - to showcase their football skills</li>
+                                <li>Scouts - to upload videos and write scouting reports</li>
+                                <li>Agents - to discover and monitor players</li>
+                                <li>Admins - to manage and oversee the platform</li>
+                            </ul>
+                        </strong>
+                        </div>
+                    </div>
+                    </div>
+                     <!--FAQ 3-->
+                    <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        3. Do players need to pay to register?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body text-dark accordion2">
+                        <strong>No. Player registration is completely free. The goal of the platform is to give young talents an opportunity to be seen by the right people.</strong>
+                        </div>
+                    </div>
+                    </div>
+                     <!--FAQ 4-->
+                    <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        4. How do scouts upload videos?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                        <div class="accordion-body text-dark accordion2">
+                        <strong>Registered scouts can log in to their dashboard and upload player highlight videos by providing a video link and selecting the relevant player profile.</strong>
+                        </div>
+                    </div>
+                    </div>
+                     <!--FAQ 5-->
+                    <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        5. How accurate are the player evaluations?
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                        <div class="accordion-body text-dark accordion2">
+                        <strong>Player evaluations are written by registered scouts based on match observations and video analysis. The platform does not guarantee transfers but provides reliable insights to assist decision-making.</strong>
+                        </div>
+                    </div>
+                    </div>
+                     <!--FAQ 6-->
+                    <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        6. How do you get your footage?
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                        <div class="accordion-body text-dark accordion2">
+                        <strong>Football Scout obtains its footage through exclusive partnerships with amateur and professional academies across the countries we cover. These academies film their games and upload them directly to the platform.
+                        Once uploaded, Eyeball processes the footage, making it available for clients to watch, analyze, and scout.</strong>
+                        </div>
+                    </div>
+                    </div>
+                     <!--FAQ 7-->
+                    <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSeven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        7. Is my data safe on this platform?
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                        <div class="accordion-body text-dark accordion2">
+                        <strong>Yes. User data such as emails and passwords are securely stored using encryption and industry-standard security practices.</strong>
+                        </div>
+                    </div>
+                    </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+       {%include "user/footer.html"%}
+
+
+
+    </div>
+    <script src="{{url_for('static',filename='bootstrap/js/bootstrap.bundle.js')}}"></script>
+</body>
+</html>

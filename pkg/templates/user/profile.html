@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" >  <!-- Description -->
+    <meta name="author" content="Godwin C.N">
+	<meta name="robots" content="index, follow">
+	<title> {{session.get('useronline')}} Profile </title>
+	<link rel="stylesheet" href="{{url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/animate.min.css" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+    <style>
+        /* *{
+            outline:2px solid red;
+        } */
+    .navbar-brand, [img]{
+			max-width:80px; 
+			padding:0;
+	}
+     body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        margin: 0;
+        padding: 20px;
+    }
+	.football{
+		font-family:"Saira Stencil One", sans-serif;
+	}
+	.ctus{
+		border-radius:20px
+	}
+	.nav-link ul li a{
+		text-decoration:none;
+		font-size:17px;
+		font-weight:bold;
+	}
+    .nav-link ul [href]:hover{
+			font-family:"Saira Stencil One", sans-serif;
+		}
+	 .young{
+		font-size:25px;
+	}	
+    .profile{
+        background:linear-gradient(to bottom,silver,darkslategray);
+        padding: 30px;
+        border-radius: 20px;
+        font-size:16px;
+    }
+    .profile-image{
+        border-radius: 10px;
+    }
+    .video-btn:hover{
+    background-color:black;
+    color:white;
+    }
+    .footer{
+        background:radial-gradient(ellipse, rgb(59, 177, 203) 50%,rgb(43, 74, 131));
+    }
+    .footer a{
+	text-decoration:none;
+	color:white;
+	}
+	a{
+		text-decoration:none;
+	}
+	.discover{
+		font-size:100px;
+	}
+    .footer [href]:hover{
+			color:black;
+			font-family:"Saira Stencil One", sans-serif;
+		}
+
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+      {%include "user/navbar.html"%}
+
+    
+        <div class="row pt-5">
+            <div class="col-md-6 bg-dark offset-md-3 text-white pt-5 profile">
+                <div class="row">
+                    <div class=" col-12 col-sm-9 col-md-6">
+                                
+                            {%if userdeets.player_photo %}
+							<img src="{{url_for('static',filename='uploads/'+userdeets.player_photo)}}" alt="young footballer" class="img-fluid w-75 rounded-circle"/>
+							{%else%}
+							<img src="{{url_for('static',filename='images/avatar.jpg')}}" alt="young footballer" class="img-fluid w-75 rounded-circle"/>
+							{%endif%}
+                    </div>
+                    <div class="col-12 col-sm-9 col-md-6 pt-2">
+                         <h1> {{userdeets.player_firstname}} {{userdeets.player_lastname}} </h1>
+                            <p>Age: {{userdeets.get_age()}} </p>
+                            <p>Position: {{userdeets.primary_position.position_name}}</p>
+                            <p>Phone: {{userdeets.player_phone}} </p>
+                            <p>Email: {{userdeets.player_email}} </p>
+                            <p>Country: {{userdeets.country.country_name}}</p>
+                                        <hr>
+                                <h2>Player Information</h2>
+                          
+                                <p><strong>Height:</strong>{{userdeets.player_height}}cm </p>
+                                <p><strong>Primary Position:</strong> {{userdeets.primary_position.position_name}} </p>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-12 col-md-6 pt-5">
+                            <h2> Highlight Videos: </h2>
+                            <div class="row">
+                                    {% for video in userdeets.videos %}
+                                <div class="col-12 col-md-6">
+                                        <iframe width="100%" height="100"
+                                    src="{{ video.video_link.replace('shorts/', 'embed/').split('?')[0] }}"
+                                    frameborder="0"
+                                    allow="autoplay; picture-in-picture"
+                                    allowfullscreen>
+                                    </iframe>
+                                </div>
+                                    {% endfor %}
+                            </div>
+                        </div>
+                        
+                
+
+                    {%if session.get('usertype') == 'player' and userdeets %}
+                    <div class="col-12">
+                            <a href="{{url_for('profile_edit')}}" class="btn btn-info video-btn">Edit profile</a>
+                    </div>
+                    {%endif%}
+                </div>
+                
+
+            </div>
+        </div>
+
+
+
+     
+
+
+        {%include "user/footer.html"%}
+
+
+
+    </div>
+    <script src="{{url_for('static',filename='bootstrap/js/bootstrap.bundle.js')}}"></script>
+</body>
+</html>

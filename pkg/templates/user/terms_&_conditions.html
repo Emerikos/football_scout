@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" >  <!-- Description -->
+    <meta name="author" content="Godwin C.N">
+	<meta name="robots" content="index, follow">
+	<title>{%block title%} Terms & Conditions {%endblock title%} </title>
+	<link rel="stylesheet" href="{{url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+    <style>
+    .navbar-brand, [img]{
+			max-width:80px; 
+			padding:0;
+	}
+	.ctus{
+		border-radius:20px
+	}
+	.nav-link ul li a{
+		text-decoration:none;
+		font-size:17px;
+		font-weight:bold;
+	}
+    .nav-link ul [href]:hover{
+			font-family:"Saira Stencil One", sans-serif;
+		}
+
+    .footer{
+        background:radial-gradient(ellipse, rgb(59, 177, 203) 50%,rgb(43, 74, 131));
+    }
+    .footer a{
+	text-decoration:none;
+	color:white;
+	}
+	a{
+		text-decoration:none;
+	}
+       body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+        }
+    .container{
+            max-width: 900px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+        }
+    .highlight {
+            background: #eaf5f7;
+            padding: 10px;
+            border-left: 4px solid #628ba9;
+    }
+	.discover{
+		font-size:100px;
+	}
+    .footer [href]:hover{
+			color:black;
+			font-family:"Saira Stencil One", sans-serif;
+	}
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- navbar -->
+        {% include "user/navbar.html" %}
+
+        <div class="row container pt-5">
+            <div class="col pt-5">
+                <div class="highlight">
+                    <p>Welcome to our football scouting platform. By registering, accessing, or using this system, you agree to these Terms and Conditions.</p>
+                </div>
+
+                <h2>1. Purpose of the Platform</h2>
+                <p>This platform is designed for football scouting, player evaluation, and performance reporting by scouts, coaches, and authorized users only.</p>
+
+                <h2>2. Eligibility</h2>
+                <p>Users must provide accurate information during registration and must only use the platform for legitimate scouting and football-related purposes.</p>
+
+                <h2>3. Account Responsibility</h2>
+                <p>You are responsible for maintaining the confidentiality of your login details and all activities under your account.</p>
+
+                <h2>4. Player Information Usage</h2>
+                <p>Player profiles, statistics, and images are provided for scouting purposes only. Users must not misuse, redistribute, or exploit this data outside the platform.</p>
+
+                <h2>5. Player Data</h2>
+                <p>Player information, including performance data and images, must be handled responsibly and not shared outside the platform without permission.</p>
+
+
+                <h2>6. Restrictions</h2>
+                <ul>
+                    <li>No misuse of player data</li>
+                    <li>No fake scouts </li>
+                    <li>No unauthorized access to other users' accounts</li>
+                </ul>
+
+                <h2>7. Updates</h2>
+                <p>These Terms may be updated at any time. Continued use of the platform means you accept the updated terms.</p>
+                </div>
+            </div>
+            
+		
+
+
+		{% include "user/footer.html" %}
+
+    </div>
+	<script src="{{url_for('static',filename='bootstrap/js/bootstrap.bundle.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" >  <!-- Description -->
+    <meta name="author" content="Godwin C.N">
+	<meta name="robots" content="index, follow">
+	<title>{%block title%} Football Scout Page {%endblock title%} </title>
+	<link rel="stylesheet" href="{{url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+    <style>
+    .navbar-brand, [img]{
+			max-width:80px; 
+			padding:0;
+	}
+	.ctus{
+		border-radius:20px
+	}
+	.nav-link ul li a{
+		text-decoration:none;
+		font-size:17px;
+		font-weight:bold;
+	}
+    .nav-link ul [href]:hover{
+			font-family:"Saira Stencil One", sans-serif;
+		}
+    .footer{
+        background:radial-gradient(ellipse, rgb(59, 177, 203) 50%,rgb(43, 74, 131));
+    }
+    .footer a{
+	text-decoration:none;
+	color:white;
+	}
+	a{
+		text-decoration:none;
+	}
+	.discover{
+		font-size:100px;
+	}
+    .footer [href]:hover{
+			color:black;
+			font-family:"Saira Stencil One", sans-serif;
+		}
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- navbar -->
+<div class="container-fluid">
+       {% include "user/navbar.html" %}
+
+		{%block contents%}
+		
+		{%endblock contents%}
+
+
+
+		{% include "user/footer.html" %}
+
+
+	<script src="{{url_for('static',filename='bootstrap/js/bootstrap.bundle.js')}}"></script>
+</body>
+</html>
