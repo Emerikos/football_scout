@@ -268,7 +268,7 @@ def profile_edit():
         flash('You need to log in as a player to access this page')
         return redirect(url_for('home'))
     else:
-        if (session.get('usertype') in ['scout', 'admin']) and session.get('userid') or session.get('adminid'):
+        if (session.get('usertype') in ['player', 'admin']) and session.get('userid') or session.get('adminid'):
             userdeets = Player.query.get(session['userid'])
             if request.method == 'GET':
                 if vid:
@@ -331,9 +331,8 @@ def profile_picture():
             photo_obj = photoform.photo.data
             dfilename = photo_obj.filename
             name,extension = os.path.splitext(dfilename)
-            newname = secrets.token_hex(10) + extension      # *10 means how many bits(length of the filename)
-            photo_obj.save('pkg/static/uploads/'+newname)       #saved the photo with a random name generated
-            #save in db for user that is logged in
+            newname = secrets.token_hex(10) + extension
+            photo_obj.save('pkg/static/uploads/'+newname)
             player = Player.query.get(session['userid'])
             player.player_photo = newname
             db.session.commit()
@@ -415,8 +414,6 @@ def terms():
 
 
 
-
-
 @app.route('/insert-positions/')
 def insert_positions():
     p1 = Position(position_name="Striker(ST)")
@@ -435,44 +432,3 @@ def insert_positions():
 
 
 
-
-# @app.get('/configitems/')
-# def configitems():
-#     items = app.config
-#     print(app.config.get('SECRET_KEY'))
-#     return render_template('user/config.html',items=items)
-
-
-# @app.route('/addcountries/')
-# def add_countries():
-#     countries = [
-#         "Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia",
-#         "Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium",
-#         "Belize","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei",
-#         "Bulgaria","Burkina Faso","Burundi","Cabo Verde","Cambodia","Cameroon","Canada","Central African Republic",
-#         "Chad","Chile","China","Colombia","Comoros","Congo (Brazzaville)","Congo (Kinshasa)","Costa Rica",
-#         "Croatia","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic",
-#         "Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia",
-#         "Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada",
-#         "Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hungary","Iceland","India",
-#         "Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan",
-#         "Kenya","Kiribati","Korea, North","Korea, South","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia",
-#         "Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Madagascar","Malawi",
-#         "Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia",
-#         "Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal",
-#         "Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Macedonia","Norway","Oman","Pakistan",
-#         "Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal",
-#         "Qatar","Romania","Russia","Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines",
-#         "Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone",
-#         "Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Sudan","Spain",
-#         "Sri Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania",
-#         "Thailand","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan",
-#         "Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay",
-#         "Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"
-#     ]
-
-#     country_objects = [Country(country_name=c) for c in countries]
-#     db.session.add_all(country_objects)
-#     db.session.commit()
-
-#     return("All countries added successfully!")
